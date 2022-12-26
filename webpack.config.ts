@@ -44,7 +44,8 @@ const config: webpack.Configuration = {
         new HTMLWebpackPlugin({
             template: './index.html'
         })
-    ]
+    ],
+    stats: 'minimal'
 };
 
 const depConfig: webpack.Configuration = {};
