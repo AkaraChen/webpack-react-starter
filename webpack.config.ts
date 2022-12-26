@@ -21,7 +21,7 @@ const config: webpack.Configuration = {
         ]
     },
     resolve: {
-        extensions: ['.ts', '.tsx']
+        extensions: ['.ts', '.tsx', '.js']
     },
     optimization: {
         minimizer: [
