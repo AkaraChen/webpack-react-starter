@@ -2,6 +2,7 @@ import { MFSU } from '@umijs/mfsu';
 import webpack from 'webpack';
 import { ESBuildMinifyPlugin } from 'esbuild-loader';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
+import MiniCSSExtract from 'mini-css-extract-plugin';
 
 const mfsu = new MFSU({
     implementor: webpack,
@@ -22,7 +23,7 @@ const config: webpack.Configuration = {
             {
                 test: /\.css$/i,
                 use: [
-                    'style-loader',
+                    MiniCSSExtract.loader,
                     'css-loader',
                     'postcss-loader'
                 ]
@@ -43,7 +44,8 @@ const config: webpack.Configuration = {
     plugins: [
         new HTMLWebpackPlugin({
             template: './index.html'
-        })
+        }),
+        new MiniCSSExtract()
     ],
     stats: 'minimal'
 };
