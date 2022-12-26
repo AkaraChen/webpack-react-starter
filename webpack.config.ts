@@ -1,6 +1,7 @@
 import { MFSU } from '@umijs/mfsu';
 import webpack from 'webpack';
 import { ESBuildMinifyPlugin } from 'esbuild-loader';
+import HTMLWebpackPlugin from 'html-webpack-plugin';
 
 const mfsu = new MFSU({
     implementor: webpack,
@@ -30,7 +31,12 @@ const config: webpack.Configuration = {
                 css: true
             })
         ]
-    }
+    },
+    plugins: [
+        new HTMLWebpackPlugin({
+            template: './index.html'
+        })
+    ]
 };
 
 const depConfig: webpack.Configuration = {};
