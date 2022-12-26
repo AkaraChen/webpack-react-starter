@@ -18,6 +18,14 @@ const config: webpack.Configuration = {
             {
                 test: /\.(`ts|tsx)$/,
                 loader: 'swc-loader'
+            },
+            {
+                test: /\.css$/i,
+                use: [
+                    'style-loader',
+                    'css-loader',
+                    'postcss-loader'
+                ]
             }
         ]
     },
