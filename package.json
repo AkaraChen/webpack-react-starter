@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "webpack",
-    "dev": "webpack serve"
+    "dev": "cross-env NODE_ENV=development webpack serve",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +21,7 @@
     "@types/webpack": "^5.28.0",
     "@umijs/mfsu": "^4.0.40",
     "babel-loader": "^9.1.0",
+    "cross-env": "^7.0.3",
     "css-loader": "^6.7.3",
     "eslint": "^8.30.0",
     "eslint-config-akrc": "^0.0.11",

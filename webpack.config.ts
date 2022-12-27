@@ -5,13 +5,15 @@ import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCSSExtract from 'mini-css-extract-plugin';
 import esbuild from 'esbuild';
 
-const mfsu = new MFSU({
+const isDevelopment = process.env.NODE_ENV === 'development';
+
+const mfsu = isDevelopment ? new MFSU({
     strategy: 'normal',
     implementor: webpack,
     depBuildConfig: null,
     startBuildWorker: null as any,
     buildDepWithESBuild: true
-});
+}) : undefined;
 
 export default async () => {
     const config: webpack.Configuration = {
@@ -20,7 +22,9 @@ export default async () => {
         // @ts-ignore
         devServer: {
             setupMiddlewares(middlewares: any) {
-                middlewares.unshift(...mfsu.getMiddlewares());
+                if (isDevelopment) {
+                    middlewares.unshift(...mfsu!.getMiddlewares());
+                }
                 return middlewares;
             }
         },
@@ -38,16 +42,13 @@ export default async () => {
                         'postcss-loader'
                     ]
                 },
-
                 {
                     test: /\.[jt]sx?$/,
                     exclude: /node_modules/,
                     use: {
                         loader: esbuildLoader,
                         options: {
-                            handler: [
-                                ...mfsu.getEsbuildLoaderHandler()
-                            ],
+                            handler: isDevelopment ? mfsu!.getEsbuildLoaderHandler() : [],
                             target: 'esnext',
                             implementation: esbuild
                         }
@@ -102,6 +103,8 @@ export default async () => {
             ]
         }
     };
-    await mfsu.setWebpackConfig({ config, depConfig });
+    if (isDevelopment) {
+        await mfsu!.setWebpackConfig({ config, depConfig });
+    }
     return config;
 };
