@@ -1,9 +1,9 @@
-import { MFSU, esbuildLoader } from '@umijs/mfsu';
-import webpack from 'webpack';
-import { ESBuildMinifyPlugin } from 'esbuild-loader';
-import HTMLWebpackPlugin from 'html-webpack-plugin';
-import MiniCSSExtract from 'mini-css-extract-plugin';
-import esbuild from 'esbuild';
+const { MFSU, esbuildLoader } = require('@umijs/mfsu');
+const webpack = require('webpack');
+const { ESBuildMinifyPlugin } = require('esbuild-loader');
+const HTMLWebpackPlugin = require('html-webpack-plugin');
+const MiniCSSExtract = require('mini-css-extract-plugin');
+const esbuild = require('esbuild');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -11,19 +11,21 @@ const mfsu = isDevelopment ? new MFSU({
     strategy: 'normal',
     implementor: webpack,
     depBuildConfig: null,
-    startBuildWorker: null as any,
+    startBuildWorker: null,
     buildDepWithESBuild: true
 }) : undefined;
 
-export default async () => {
-    const config: webpack.Configuration = {
-        mode: 'development',
+module.exports = async () => {
+    /**
+     * @type {webpack.Configuration}
+     */
+    const config = {
+        mode: isDevelopment ? 'development' : 'production',
         entry: './src/main.tsx',
-        // @ts-ignore
         devServer: {
-            setupMiddlewares(middlewares: any) {
+            setupMiddlewares(middlewares) {
                 if (isDevelopment) {
-                    middlewares.unshift(...mfsu!.getMiddlewares());
+                    middlewares.unshift(...mfsu.getMiddlewares());
                 }
                 return middlewares;
             }
@@ -48,7 +50,7 @@ export default async () => {
                     use: {
                         loader: esbuildLoader,
                         options: {
-                            handler: isDevelopment ? mfsu!.getEsbuildLoaderHandler() : [],
+                            handler: isDevelopment ? mfsu.getEsbuildLoaderHandler() : [],
                             target: 'esnext',
                             implementation: esbuild
                         }
@@ -80,7 +82,7 @@ export default async () => {
         }
     };
 
-    const depConfig: webpack.Configuration = {
+    const depConfig = {
         output: {},
         resolve: {
             extensions: ['.ts', '.tsx', '.js', '.jsx']
@@ -104,7 +106,7 @@ export default async () => {
         }
     };
     if (isDevelopment) {
-        await mfsu!.setWebpackConfig({ config, depConfig });
+        await mfsu.setWebpackConfig({ config, depConfig });
     }
     return config;
 };
