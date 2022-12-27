@@ -1,8 +1,9 @@
-import { MFSU } from '@umijs/mfsu';
+import { MFSU, esbuildLoader } from '@umijs/mfsu';
 import webpack from 'webpack';
 import { ESBuildMinifyPlugin } from 'esbuild-loader';
 import HTMLWebpackPlugin from 'html-webpack-plugin';
 import MiniCSSExtract from 'mini-css-extract-plugin';
+import esbuild from 'esbuild';
 
 const mfsu = new MFSU({
     strategy: 'normal',
@@ -18,10 +19,9 @@ export default async () => {
         entry: './src/main.tsx',
         // @ts-ignore
         devServer: {
-            onBeforeSetupMiddleware(devServer: any) {
-                for (const middleware of mfsu.getMiddlewares()) {
-                    devServer.app.use(middleware);
-                }
+            setupMiddlewares(middlewares: any) {
+                middlewares.unshift(...mfsu.getMiddlewares());
+                return middlewares;
             }
         },
         module: {
@@ -38,19 +38,22 @@ export default async () => {
                         'postcss-loader'
                     ]
                 },
+
                 {
                     test: /\.[jt]sx?$/,
                     exclude: /node_modules/,
                     use: {
-                        loader: 'babel-loader',
+                        loader: esbuildLoader,
                         options: {
-                            presets: ['@babel/preset-env', '@babel/preset-react', '@babel/preset-typescript'],
-                            plugins: [
-                                ...mfsu.getBabelPlugins()
-                            ]
+                            handler: [
+                                ...mfsu.getEsbuildLoaderHandler()
+                            ],
+                            target: 'esnext',
+                            implementation: esbuild
                         }
                     }
                 }
+
             ]
         },
         resolve: {
@@ -76,9 +79,29 @@ export default async () => {
         }
     };
 
-    const depConfig: webpack.Configuration = {};
-
+    const depConfig: webpack.Configuration = {
+        output: {},
+        resolve: {
+            extensions: ['.ts', '.tsx', '.js', '.jsx']
+        },
+        module: {
+            rules: [
+                {
+                    test: /\.[jt]sx?$/,
+                    use: {
+                        loader: 'babel-loader',
+                        options: {
+                            presets: [
+                                '@babel/preset-env',
+                                '@babel/preset-react',
+                                '@babel/preset-typescript'
+                            ]
+                        }
+                    }
+                }
+            ]
+        }
+    };
     await mfsu.setWebpackConfig({ config, depConfig });
-
     return config;
 };
