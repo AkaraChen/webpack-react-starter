@@ -7,6 +7,9 @@ const esbuild = require('esbuild');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
+/**
+ * @type {MFSU}
+ */
 const mfsu = isDevelopment ? new MFSU({
     strategy: 'normal',
     implementor: webpack,
@@ -76,12 +79,15 @@ module.exports = async () => {
             }),
             new MiniCSSExtract()
         ],
-        stats: 'minimal',
+        stats: 'errors-warnings',
         cache: {
             type: 'filesystem'
         }
     };
 
+    /**
+     * @type {webpack.Configuration}
+     */
     const depConfig = {
         output: {},
         resolve: {
