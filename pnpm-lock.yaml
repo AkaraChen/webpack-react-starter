@@ -17,7 +17,7 @@ specifiers:
   esbuild: ^0.16.11
   esbuild-loader: ^2.20.0
   eslint: ^8.30.0
-  eslint-config-akrc: ^0.0.11
+  eslint-config-akrc: ^0.0.12
   html-webpack-plugin: ^5.5.0
   mini-css-extract-plugin: ^2.7.2
   postcss: ^8.4.20
@@ -52,7 +52,7 @@ devDependencies:
   esbuild: 0.16.11
   esbuild-loader: 2.20.0_webpack@5.75.0
   eslint: 8.30.0
-  eslint-config-akrc: 0.0.11
+  eslint-config-akrc: 0.0.12
   html-webpack-plugin: 5.5.0_webpack@5.75.0
   mini-css-extract-plugin: 2.7.2_webpack@5.75.0
   postcss: 8.4.20
@@ -3635,8 +3635,8 @@ packages:
       semver: 6.3.0
     dev: true
 
-  /eslint-config-akrc/0.0.11:
-    resolution: {integrity: sha512-Yt3D9nG8A3EFiAufCEsPUet/fGvWEko777C0Ra6WyShXGf/DdP3icjXj2Btr3UCvn8Gnfeyw3OYo1sLR9K0SUw==}
+  /eslint-config-akrc/0.0.12:
+    resolution: {integrity: sha512-n+uZ8Dd111TzOG7Sr0t9DSS/mcm0a7ld1fYkAo8OJxUmj5f615rnJUQL6T6L0+P+kj7zxvviOqMECUNekJms+g==}
     requiresBuild: true
     dependencies:
       '@typescript-eslint/eslint-plugin': 5.47.1_txmweb6yn7coi7nfrp22gpyqmy
