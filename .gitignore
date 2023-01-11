@@ -104,5 +104,9 @@ dist
 .tern-port
 
 # MFSU
-
 .mfsu/**
+
+# Playwright
+/test-results/
+/playwright-report/
+/playwright/.cache/
