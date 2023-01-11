@@ -1,6 +1,6 @@
 import React from 'react';
 
-const App = () => {
+const Index = () => {
   return (
     <>
       <main>
@@ -18,4 +18,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Index;

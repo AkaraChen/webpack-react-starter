@@ -26,7 +26,7 @@ module.exports = async () => {
    */
   const config = {
     mode: isDevelopment ? 'development' : 'production',
-    entry: './src/main.tsx',
+    entry: './main.tsx',
     devServer: {
       setupMiddlewares(middlewares) {
         if (isDevelopment) {
@@ -60,7 +60,10 @@ module.exports = async () => {
       ]
     },
     resolve: {
-      extensions: ['.ts', '.tsx', '.js']
+      extensions: ['.ts', '.tsx', '.js'],
+      alias: {
+        '@': '.'
+      }
     },
     optimization: {
       minimizer: [
