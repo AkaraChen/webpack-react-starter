@@ -1,0 +1,7 @@
+{
+  "extends": [
+    "stylelint-prettier/recommended",
+    "stylelint-config-akrc",
+    "stylelint-config-tailwindcss"
+  ]
+}
