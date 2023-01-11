@@ -1,5 +1,12 @@
 {
     "extends": [
-        "akrc"
-    ]
+        "akrc",
+        "prettier"
+    ],
+    "plugins": [
+        "prettier"
+    ],
+    "rules": {
+        "prettier/prettier": "warn"
+    }
 }

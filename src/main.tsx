@@ -6,7 +6,7 @@ import './global.css';
 const container = document.querySelector('#app');
 const root = createRoot(container!);
 root.render(
-    <React.StrictMode>
-        <App />
-    </React.StrictMode>
+  <React.StrictMode>
+    <App />
+  </React.StrictMode>
 );
