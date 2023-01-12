@@ -33,7 +33,8 @@ module.exports = async () => {
           middlewares.unshift(...mfsu.getMiddlewares());
         }
         return middlewares;
-      }
+      },
+      historyApiFallback: true
     },
     module: {
       rules: [
@@ -62,7 +63,7 @@ module.exports = async () => {
     resolve: {
       extensions: ['.ts', '.tsx', '.js'],
       alias: {
-        '@': '.'
+        '@': __dirname
       }
     },
     optimization: {

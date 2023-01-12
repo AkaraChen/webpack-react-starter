@@ -1,19 +1,33 @@
 import { useRouteError } from 'react-router-dom';
 import React from 'react';
+import { Button, Heading, Text } from '@chakra-ui/react';
+import { ChevronLeftIcon } from '@chakra-ui/icons';
+import { useNavigate } from 'react-router-dom'
 
 export const Error: React.FC = () => {
   const error = useRouteError() as {
     statusText: string;
     message: string;
+    status: number
   };
+    const {status, message, statusText} = error
+  const navigate = useNavigate()
 
   return (
-    <div id="error-page">
-      <h1>Oops!</h1>
-      <p>Sorry, an unexpected error has occurred.</p>
-      <p>
-        <i>{error.statusText || error.message}</i>
-      </p>
+    <div className='max-w-2xl h-screen m-auto flex flex-col items-center justify-center space-y-2'>
+      <Heading>{`${status} ${statusText}`}</Heading>
+      <Text fontSize={'xl'}>Sorry, an unexpected error has occurred.</Text>
+      <Text fontSize={'xl'}>
+        {message}
+      </Text>
+      <Button
+        colorScheme='blue'
+        aria-label='Back to Home'
+        leftIcon={<ChevronLeftIcon />}
+        onClick={() =>  navigate('/')}
+      >
+        Back to Home
+      </Button>
     </div>
   );
 };

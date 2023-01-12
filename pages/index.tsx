@@ -2,7 +2,6 @@ import React from 'react';
 
 const Index = () => {
   return (
-    <>
       <main>
         <article className="prose">
           <h1>Hello, World!</h1>
@@ -14,7 +13,6 @@ const Index = () => {
           </p>
         </article>
       </main>
-    </>
   );
 };
 
