@@ -1,7 +1,5 @@
 import { useRouteError } from 'react-router-dom';
 import React from 'react';
-import { Button, Heading, Text } from '@chakra-ui/react';
-import { ChevronLeftIcon } from '@chakra-ui/icons';
 import { useNavigate } from 'react-router-dom';
 
 export const Error: React.FC = () => {
@@ -14,18 +12,16 @@ export const Error: React.FC = () => {
   const navigate = useNavigate();
 
   return (
-    <div className="m-auto flex h-screen max-w-2xl flex-col items-center justify-center space-y-2">
-      <Heading>{`${status} ${statusText}`}</Heading>
-      <Text fontSize={'xl'}>Sorry, an unexpected error has occurred.</Text>
-      <Text fontSize={'xl'}>{message}</Text>
-      <Button
-        colorScheme="blue"
-        aria-label="Back to Home"
-        leftIcon={<ChevronLeftIcon />}
+    <div className="m-auto flex h-screen max-w-2xl flex-col items-center justify-center space-y-3">
+      <h1 className="text-3xl">{`${status} ${statusText}`}</h1>
+      <p>Sorry, an unexpected error has occurred.</p>
+      <p>{message}</p>
+      <button
         onClick={() => navigate('/')}
+        className="rounded bg-blue-500 px-4 py-2 text-white"
       >
-        Back to Home
-      </Button>
+        Back to home
+      </button>
     </div>
   );
 };

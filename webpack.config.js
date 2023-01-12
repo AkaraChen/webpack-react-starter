@@ -4,6 +4,8 @@ const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtract = require('mini-css-extract-plugin');
 const esbuild = require('esbuild');
+const WebpackBar = require('webpackbar');
+const { Consola } = require('consola');
 
 const isDevelopment = process.env.NODE_ENV === 'development';
 
@@ -16,7 +18,8 @@ const mfsu = isDevelopment
       implementor: webpack,
       depBuildConfig: null,
       startBuildWorker: null,
-      buildDepWithESBuild: true
+      buildDepWithESBuild: true,
+      cwd: process.cwd()
     })
   : undefined;
 
@@ -29,12 +32,20 @@ module.exports = async () => {
     entry: './main.tsx',
     devServer: {
       setupMiddlewares(middlewares) {
-        if (isDevelopment) {
-          middlewares.unshift(...mfsu.getMiddlewares());
-        }
+        middlewares.unshift(...mfsu.getMiddlewares());
         return middlewares;
       },
-      historyApiFallback: true
+      historyApiFallback: true,
+      open: true,
+      compress: false,
+      client: {
+        logging: 'none',
+        progress: true
+      }
+    },
+    infrastructureLogging: {
+      level: 'error',
+      console: Consola
     },
     module: {
       rules: [
@@ -78,12 +89,10 @@ module.exports = async () => {
       new HTMLWebpackPlugin({
         template: './index.html'
       }),
-      new MiniCSSExtract()
+      new MiniCSSExtract(),
+      new WebpackBar()
     ],
-    stats: 'errors-warnings',
-    cache: {
-      type: 'filesystem'
-    }
+    stats: isDevelopment ? 'errors-warnings' : 'summary'
   };
 
   /**
@@ -99,14 +108,7 @@ module.exports = async () => {
         {
           test: /\.[jt]sx?$/,
           use: {
-            loader: 'babel-loader',
-            options: {
-              presets: [
-                '@babel/preset-env',
-                '@babel/preset-react',
-                '@babel/preset-typescript'
-              ]
-            }
+            loader: 'esbuild-loader'
           }
         }
       ]
