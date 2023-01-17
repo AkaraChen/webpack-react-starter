@@ -1,6 +1,7 @@
 import { useRouteError } from 'react-router-dom';
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
+import { Button } from '@/components';
 
 export const Error: React.FC = () => {
   const error = useRouteError() as {
@@ -16,12 +17,7 @@ export const Error: React.FC = () => {
       <h1 className="text-3xl">{`${status} ${statusText}`}</h1>
       <p>Sorry, an unexpected error has occurred.</p>
       <p>{message}</p>
-      <button
-        onClick={() => navigate('/')}
-        className="rounded bg-blue-500 px-4 py-2 text-white"
-      >
-        Back to home
-      </button>
+      <Button onClick={() => navigate('/')}>Back to home</Button>
     </div>
   );
 };

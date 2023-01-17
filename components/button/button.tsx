@@ -1,9 +1,18 @@
-import React from 'react';
+import React, { DetailedHTMLProps, ButtonHTMLAttributes } from 'react';
 
-interface IOptions {
-  children: JSX.Element;
-}
+export type ButtonOptions = DetailedHTMLProps<
+  ButtonHTMLAttributes<HTMLButtonElement>,
+  HTMLButtonElement
+> & {};
 
-export const Button: React.FC<IOptions> = ({ children }) => {
-  return <button className="text-blue-500">{children}</button>;
+export const Button: React.FC<ButtonOptions> = properties => {
+  const { children } = properties;
+  return (
+    <button
+      className="rounded bg-blue-500 px-4 py-2 text-white"
+      {...properties}
+    >
+      {children}
+    </button>
+  );
 };
