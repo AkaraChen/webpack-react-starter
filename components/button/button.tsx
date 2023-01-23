@@ -9,7 +9,8 @@ export const Button: React.FC<ButtonOptions> = properties => {
   const { children } = properties;
   return (
     <button
-      className="rounded bg-blue-500 px-4 py-2 text-white"
+      className="rounded bg-gradient-to-r from-blue-500 to-blue-700 
+      px-4 py-2 text-white transition-all hover:shadow-lg"
       {...properties}
     >
       {children}
