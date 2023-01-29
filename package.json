@@ -11,7 +11,8 @@
     "test:e2e": "playwright test",
     "lint": "npm-run-all -s lint:*",
     "lint:es": "eslint . --ext .ts,.js,.tsx,.jsx --format=pretty --fix",
-    "lint:style": "stylelint --fix ./**/*.css"
+    "lint:style": "stylelint --fix ./**/*.css",
+    "fmt": "prettier -w ./**/*.ts*"
   },
   "keywords": [],
   "author": "",

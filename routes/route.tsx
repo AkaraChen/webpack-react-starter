@@ -1,4 +1,3 @@
-import React from 'react';
 import { createBrowserRouter } from 'react-router-dom';
 import { Error } from './error';
 import Index from '@/pages/index';

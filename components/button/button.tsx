@@ -1,4 +1,4 @@
-import React, { DetailedHTMLProps, ButtonHTMLAttributes } from 'react';
+import { DetailedHTMLProps, ButtonHTMLAttributes } from 'react';
 
 export type ButtonOptions = DetailedHTMLProps<
   ButtonHTMLAttributes<HTMLButtonElement>,

@@ -90,7 +90,10 @@ module.exports = async () => {
         template: './index.html'
       }),
       new MiniCSSExtract(),
-      new WebpackBar()
+      new WebpackBar(),
+      new webpack.ProvidePlugin({
+        React: 'react'
+      })
     ],
     stats: isDevelopment ? 'errors-warnings' : 'summary'
   };
