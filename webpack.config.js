@@ -79,7 +79,7 @@ module.exports = async () => {
     },
     optimization: {
       minimizer: [
-        new ESBuildMinifyPlugin({
+        new ESBuildPlugin({
           legalComments: 'none',
           css: true
         })
