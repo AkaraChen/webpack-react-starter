@@ -30,7 +30,7 @@
     "cross-env": "^7.0.3",
     "css-loader": "^6.7.3",
     "esbuild": "^0.17.0",
-    "esbuild-loader": "^2.20.0",
+    "esbuild-loader": "^3.0.0",
     "eslint": "^8.31.0",
     "eslint-config-akrc": "^1.1.1",
     "eslint-config-prettier": "^8.6.0",
