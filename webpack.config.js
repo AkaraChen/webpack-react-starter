@@ -1,6 +1,6 @@
 const { MFSU, esbuildLoader } = require('@umijs/mfsu');
 const webpack = require('webpack');
-const { ESBuildMinifyPlugin } = require('esbuild-loader');
+const { ESBuildPlugin } = require('esbuild-loader');
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtract = require('mini-css-extract-plugin');
 const esbuild = require('esbuild');
