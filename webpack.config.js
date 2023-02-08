@@ -1,6 +1,6 @@
 const { MFSU, esbuildLoader } = require('@umijs/mfsu');
 const webpack = require('webpack');
-const { EsBuildPlugin } = require('esbuild-loader');
+const { EsbuildPlugin } = require('esbuild-loader')
 const HTMLWebpackPlugin = require('html-webpack-plugin');
 const MiniCSSExtract = require('mini-css-extract-plugin');
 const esbuild = require('esbuild');
@@ -79,7 +79,7 @@ module.exports = async () => {
     },
     optimization: {
       minimizer: [
-        new EsBuildPlugin({
+        new EsbuildPlugin({
           legalComments: 'none',
           css: true
         })
