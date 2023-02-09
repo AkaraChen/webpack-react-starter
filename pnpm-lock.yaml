@@ -38,6 +38,7 @@ specifiers:
   swc-loader: ^0.2.3
   tailwindcss: ^3.2.4
   typescript: ^4.9.4
+  unplugin-confetti: ^1.0.0
   vitest: ^0.28.0
   webpack: ^5.75.0
   webpack-cli: ^5.0.1
@@ -84,6 +85,7 @@ devDependencies:
   swc-loader: 0.2.3_v4imsvpumnwpgduroyqmpcfjiy
   tailwindcss: 3.2.4_postcss@8.4.21
   typescript: 4.9.4
+  unplugin-confetti: 1.0.0
   vitest: 0.28.1
   webpack: 5.75.0_loo77yusgat2e23dfdrklprvp4
   webpack-cli: 5.0.1_uaydpeuxkjjcxdbyfgk36cjdxi
@@ -91,6 +93,10 @@ devDependencies:
   webpackbar: 5.0.2_webpack@5.75.0
 
 packages:
+
+  /@akrc/confetti/1.0.0:
+    resolution: {integrity: sha512-LgU6SbQflEUlyxDMLSDKNQYhDyTruXJrIL9ELC5JY7eYN7wvVce6lfi4tLtEbdSZ3gmxsz9piRpbPa6CN0fD8g==}
+    dev: true
 
   /@babel/code-frame/7.18.6:
     resolution: {integrity: sha512-TDCmlK5eOvH+eH7cdAFlNXeVJqWIQ7gW9tY1GJIpUtFb6CmjVyq2VM3u71bOyR8CRihcCgMUYoDNyLXao3+70Q==}
@@ -7127,6 +7133,22 @@ packages:
     engines: {node: '>= 0.8'}
     dev: true
 
+  /unplugin-confetti/1.0.0:
+    resolution: {integrity: sha512-yHWBpjq59EwXylk4Nxp98iL114wRdrGTrnBSgeh7IUZG+9GuxBEXDOgEZVpj1rILH7ALHXj4Q7x19eUUM9TOTg==}
+    dependencies:
+      '@akrc/confetti': 1.0.0
+      unplugin: 1.0.1
+    dev: true
+
+  /unplugin/1.0.1:
+    resolution: {integrity: sha512-aqrHaVBWW1JVKBHmGo33T5TxeL0qWzfvjWokObHA9bYmN7eNDkwOxmLjhioHl9878qDFMAaT51XNroRyuz7WxA==}
+    dependencies:
+      acorn: 8.8.1
+      chokidar: 3.5.3
+      webpack-sources: 3.2.3
+      webpack-virtual-modules: 0.5.0
+    dev: true
+
   /update-browserslist-db/1.0.10_browserslist@4.21.4:
     resolution: {integrity: sha512-OztqDenkfFkbSG+tRxBeAnCVPckDBcvibKd35yDONx6OU8N7sqgwc7rCbkJ/WcYtVRZ4ba68d6byhC21GFh7sQ==}
     hasBin: true
@@ -7437,6 +7459,10 @@ packages:
   /webpack-sources/3.2.3:
     resolution: {integrity: sha512-/DyMEOrDgLKKIG0fmvtz+4dUX/3Ghozwgm6iPp8KRhvn+eQf9+Q7GWxVNMk3+uCPWfdXYC4ExGBckIXdFEfH1w==}
     engines: {node: '>=10.13.0'}
+    dev: true
+
+  /webpack-virtual-modules/0.5.0:
+    resolution: {integrity: sha512-kyDivFZ7ZM0BVOUteVbDFhlRt7Ah/CSPwJdi8hBpkK7QLumUqdLtVfm/PX/hkcnrvr0i77fO5+TjZ94Pe+C9iw==}
     dev: true
 
   /webpack/5.75.0_loo77yusgat2e23dfdrklprvp4:

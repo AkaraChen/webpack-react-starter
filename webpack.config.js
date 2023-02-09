@@ -24,6 +24,7 @@ const mfsu = isDevelopment
   : undefined;
 
 module.exports = async () => {
+  const { default: confetti } = await import('unplugin-confetti')
   /**
    * @type {webpack.Configuration}
    */
@@ -89,7 +90,8 @@ module.exports = async () => {
       new WebpackBar(),
       new webpack.ProvidePlugin({
         React: 'react'
-      })
+      }),
+      confetti.webpack()
     ],
     stats: isDevelopment ? 'errors-warnings' : 'summary'
   };
