@@ -50,10 +50,6 @@ module.exports = async () => {
     module: {
       rules: [
         {
-          test: /\.(`ts|tsx)$/,
-          loader: 'swc-loader'
-        },
-        {
           test: /\.css$/i,
           use: [MiniCSSExtract.loader, 'css-loader', 'postcss-loader']
         },
@@ -111,7 +107,7 @@ module.exports = async () => {
         {
           test: /\.[jt]sx?$/,
           use: {
-            loader: 'esbuild-loader'
+            loader: 'swc-loader'
           }
         }
       ]
