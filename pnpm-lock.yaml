@@ -37,7 +37,7 @@ specifiers:
   stylelint-prettier: ^3.0.0
   swc-loader: ^0.2.3
   tailwindcss: ^3.2.4
-  typescript: ^4.9.4
+  typescript: ^5.0.0
   unplugin-confetti: ^1.0.0
   vitest: ^0.29.0
   webpack: ^5.75.0
@@ -84,7 +84,7 @@ devDependencies:
   stylelint-prettier: 3.0.0_ynimqwxzff2hdbuuqwky3pn7ai
   swc-loader: 0.2.3_v4imsvpumnwpgduroyqmpcfjiy
   tailwindcss: 3.2.4_postcss@8.4.21
-  typescript: 4.9.4
+  typescript: 5.0.2
   unplugin-confetti: 1.0.0
   vitest: 0.29.0
   webpack: 5.75.0_loo77yusgat2e23dfdrklprvp4
@@ -7222,6 +7222,12 @@ packages:
   /typescript/4.9.4:
     resolution: {integrity: sha512-Uz+dTXYzxXXbsFpM86Wh3dKCxrQqUcVMxwU54orwlJjOpO3ao8L7j5lH+dWfTwgCwIuM9GQ2kvVotzYJMXTBZg==}
     engines: {node: '>=4.2.0'}
+    hasBin: true
+    dev: true
+
+  /typescript/5.0.2:
+    resolution: {integrity: sha512-wVORMBGO/FAs/++blGNeAVdbNKtIh1rbBL2EyQ1+J9lClJ93KiiKe8PmFIVdXhHcyv44SL9oglmfeSsndo0jRw==}
+    engines: {node: '>=12.20'}
     hasBin: true
     dev: true
 
