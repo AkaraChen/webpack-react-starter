@@ -34,7 +34,7 @@ specifiers:
   stylelint-config-akrc: ^0.0.2
   stylelint-config-prettier: ^9.0.4
   stylelint-config-tailwindcss: ^0.0.7
-  stylelint-prettier: ^3.0.0
+  stylelint-prettier: ^4.0.0
   swc-loader: ^0.2.3
   tailwindcss: ^3.2.4
   typescript: ^5.0.0
@@ -81,7 +81,7 @@ devDependencies:
   stylelint-config-akrc: 0.0.2_hac66ft3vssu6gvlxlo7d2bjma
   stylelint-config-prettier: 9.0.4_stylelint@15.0.0
   stylelint-config-tailwindcss: 0.0.7_5hokb25ta6myw5ccrjnnh23oqe
-  stylelint-prettier: 3.0.0_ynimqwxzff2hdbuuqwky3pn7ai
+  stylelint-prettier: 4.0.0_ynimqwxzff2hdbuuqwky3pn7ai
   swc-loader: 0.2.3_v4imsvpumnwpgduroyqmpcfjiy
   tailwindcss: 3.2.4_postcss@8.4.21
   typescript: 5.0.2
@@ -6793,12 +6793,12 @@ packages:
       stylelint: 14.16.1
     dev: true
 
-  /stylelint-prettier/3.0.0_ynimqwxzff2hdbuuqwky3pn7ai:
-    resolution: {integrity: sha512-kIks1xw6np0zElokMT2kP6ar3S4MBoj6vUtPJuND1pFELMpZxVS/0uHPR4HDAVn0WAD3I5oF0IA3qBFxBpMkLg==}
+  /stylelint-prettier/4.0.0_ynimqwxzff2hdbuuqwky3pn7ai:
+    resolution: {integrity: sha512-hYlObunQiSzc5XRttNiDyaY1W7ytW/AJtEbaDxy0rr4ioQvko+cjAgSGrRbz0iRB+yc6jiMrUmHcGkvFb+zDqw==}
     engines: {node: ^14.17.0 || >=16.0.0}
     peerDependencies:
-      prettier: '>=2.0.0'
-      stylelint: '>=14.0.0'
+      prettier: '>=3.0.0'
+      stylelint: '>=15.8.0'
     dependencies:
       prettier: 2.8.2
       prettier-linter-helpers: 1.0.0
